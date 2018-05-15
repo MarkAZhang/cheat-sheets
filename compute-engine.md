@@ -1,7 +1,7 @@
 # Google Compute Engine
 
 ### Create instance with container
-See [GCP docs](https://cloud.google.com/compute/docs/containers/deploying-containers)
+See [GCP docs](https://cloud.google.com/sdk/gcloud/reference/beta/compute/instances/create-with-container)
 
 This is a convenience function. You can also create the instance first (with a Container-Optimized OS image), which comes with Docker installed, and then SSH into the instance and run the Docker image.
 
