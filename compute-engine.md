@@ -12,8 +12,8 @@ gcloud components install beta
 # Tag with http-server. See Firewall Rules below.
 gcloud beta compute instances create-with-container my-container \
      --container-image gcr.io/${PROJECT_ID}/my-image:latest \
-     --zone us-west1-b
-     --machine-type f1-micro
+     --zone us-west1-b \
+     --machine-type f1-micro \
      --tags http-server
 ```
 
