@@ -23,3 +23,11 @@ docker system prune -a
 The `-a` option removes _unused_ objects, as well as dangling.
 
 Upon running this command on my system for the first time, Docker freed up _11GB of space_. So yeah, run this command.
+
+### Stop a Docker container
+
+If you `kill` a container, it counts as failing, i.e. has a non-zero exit code.
+
+```
+docker stop my-container-id
+```
