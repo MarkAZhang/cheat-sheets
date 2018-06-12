@@ -1,5 +1,18 @@
 # Google Compute Engine
 
+### Set Up
+```
+gcloud create projects my-project
+
+# List projects.
+gcloud projects list
+
+gcloud config set project my-project
+
+# Confirm project changed.
+gcloud config get-value project
+```
+
 ### Create instance with container
 See [GCP docs](https://cloud.google.com/sdk/gcloud/reference/beta/compute/instances/create-with-container)
 
