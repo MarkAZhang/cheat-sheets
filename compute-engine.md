@@ -1,6 +1,8 @@
 # Google Compute Engine
 
 ### Set Up
+
+Create Project
 ```
 gcloud create projects my-project
 
@@ -11,6 +13,15 @@ gcloud config set project my-project
 
 # Confirm project changed.
 gcloud config get-value project
+```
+
+Build and Push Docker Container
+```
+export PROJECT_ID="$(gcloud config get-value project -q)"
+echo $PROJECT_ID
+
+docker build -t gcr.io/${PROJECT_ID}/my-app:latest .
+gcloud docker -- push gcr.io/${PROJECT_ID}/my-app:latest
 ```
 
 ### Create instance with container
