@@ -49,6 +49,8 @@ gcloud compute firewall-rules create allow-http \
     --allow tcp:80 --target-tags http-server
 ```
 
+As stated [here](https://cloud.google.com/compute/docs/containers/configuring-options-to-run-containers#publishing_container_ports), the ports of the server will mirror that of the container. Since HTTP is on port 80, your container MUST listen on port 80.
+
 ### Update container on existing instance (no SSH)
 
 NOTE: This will stop and restart the instance.
