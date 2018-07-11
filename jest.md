@@ -85,8 +85,8 @@ getZoomedViewParams.mockImplementation((_a, _b, zoomRatio) => ({
 Assert mock function calls.
 ```
 const onChangeFn = jest.fn()
-expect(onChangeFn).toHaveBeenCalledTimes(1)
-expect(onChangeFn).toHaveBeenLastCalledWith(
+expect(onChangeFn).toBeCalledTimes(1)
+expect(onChangeFn).lastCalledWith(
   expect.objectContaining({
     name: 'Point',
     type: 'point',
