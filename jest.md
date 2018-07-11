@@ -85,8 +85,13 @@ getZoomedViewParams.mockImplementation((_a, _b, zoomRatio) => ({
 Assert mock function calls.
 ```
 const onChangeFn = jest.fn()
-expect(onChangeFn.mock.calls.length).toBe(1)
-expect(onChangeFn.mock.calls[0][0]).toBe('new value 3')
+expect(onChangeFn).toHaveBeenCalledTimes(1)
+expect(onChangeFn).toHaveBeenLastCalledWith(
+  expect.objectContaining({
+    name: 'Point',
+    type: 'point',
+  })
+)
 ```
 
 You can mock entire modules, which will replace all exports with `jest.fn()`.
