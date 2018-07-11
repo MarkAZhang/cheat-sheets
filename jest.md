@@ -1,10 +1,35 @@
-# Dump of commonly used code samples.
+# Useful code samples for writing Jest tests for React components.
 
 Shallow rendering will only go one level deep, and won't work with HOCs. Use mount for full render.
 ```
 const wrapper = shallow(
   <ImageViewer imageUrl='abc.jpg' />
 )
+```
+
+Use debug to print out what was rendered.
+```
+console.log(wrapper.debug())
+```
+
+`containsMatchingElement` does partial attribute matching (as opposed to exact matching). It DOES do exact child matching.
+```
+expect(
+  shallow(
+    <ImageViewer imageUrl='abc.jpg' />
+  ).containsMatchingElement(
+    <div className='imageViewer'>
+      <img src='https://www.instabase.com/abc.jpg' alt='' />
+      <Loader />
+      <AnnotationLayer />
+    </div>
+  )
+).toBe(true)
+```
+
+If you don't want to type out the entire child structure, you can also assert individual elements based on class.
+```
+expect(wrapper.find('.files')).toHaveLength(1)
 ```
 
 Simulate events. Second parameter is the event object.
@@ -22,19 +47,19 @@ wrapper.setState({
 wrapper.state('svgWidth')
 ```
 
-Need to explicit call re-render.
+If you need the component to re-render, you will need to call `update`.
 ```
 wrapper.update()
 ```
 
-Use 'prop' to get attributes.
-Use 'toContain' to do substring matching.
+Use `prop` to get attributes.
+Use `toContain` to do substring matching.
 ```
 const imageTransform = wrapper.find('img').prop('style').transform
 expect(imageTransform).toContain('translate(100px, 100px)')
 ```
 
-Use 'toBe' to do exact matching.
+Use `toBe` to do exact matching.
 ```
 expect(wrapper.prop('value')).toBe('new value')
 ```
