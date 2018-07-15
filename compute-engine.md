@@ -9,6 +9,7 @@ gcloud create projects my-project
 # List projects.
 gcloud projects list
 
+# You want project id, not project name.
 gcloud config set project my-project
 
 # Confirm project changed.
