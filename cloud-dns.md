@@ -4,6 +4,7 @@
 ```
 gcloud compute addresses create [ADDRESS_NAME] --addresses [IP_ADDRESS] --region [REGION]
 ```
+Where IP_ADDRESS is an existing IP address that is assigned to an instance.
 
 ### List all external addresses assigned to current project.
 ```
