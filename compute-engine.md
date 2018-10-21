@@ -58,8 +58,11 @@ NOTE: This will stop and restart the instance.
 If you want to update the container without restarting the instance, you can SSH into the instance. However, you'll need to authenticate the Docker engine inside the instance in order to pull from Google Container Registry.
 
 ```
+# my-container is the name of your instance.
+gcloud compute instances list
+
 gcloud beta compute instances update-container my-container \
-     --container-image gcr.io/${PROJECT_ID}/my-image:latest
+     --container-image gcr.io/${PROJECT_ID}/my-app:latest
 ```
 
 ### SSH into instance
