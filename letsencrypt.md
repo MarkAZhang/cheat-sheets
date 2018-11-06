@@ -14,3 +14,17 @@ The remaining steps:
 * Continuing the certbot script to get the final `pem` files.
 * Serving the `pem` files in your app.
 * Re-deploying the server again.
+
+## Verify SSH certificate
+
+On a live domain:
+```
+echo | openssl s_client -connect [DOMAIN]:443 2>/dev/null | openssl x509 -noout -dates
+```
+
+For a local cert:
+```
+sudo openssl x509 -noout -dates -in /etc/letsencrypt/live/[DOMAIN]/cert.pem
+```
+
+Make sure the live domain is serving the correct cert.
