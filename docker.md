@@ -10,6 +10,11 @@ docker build -t my-image .
 docker run -d --name my-container -t my-image
 ```
 
+### Running a shell on an already running Docker container
+```
+docker exec -it my-container /bin/sh
+```
+
 ### Running a shell in a Docker image
 Works with Alpine builds.
 ```
